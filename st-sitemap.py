@@ -24,6 +24,23 @@ def get_sitemap_urls(sitemap_url):
         return []
 
 if __name__ == "__main__":
+    # Add sidebar
+    st.sidebar.title("About This Tool")
+    st.sidebar.write("""
+    This is a Sitemap URL Extractor tool that allows you to:
+    
+    - Extract URLs from sitemaps
+    - Parse XML sitemaps online
+    - Generate a list of all URLs in a sitemap
+    
+    Keywords: sitemap extractor, extract urls from sitemap, url extractor online
+    
+    How to use:
+    1. Enter the sitemap URL in the main panel
+    2. Click 'Parse and Generate CSV'
+    3. View the extracted URLs and download the CSV file
+    """)
+
     st.title("Sitemap URL Extractor")
 
     sitemap_url = st.text_input("Enter the sitemap URL:")
