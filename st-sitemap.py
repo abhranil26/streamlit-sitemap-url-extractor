@@ -40,14 +40,13 @@ if __name__ == "__main__":
             st.markdown(f"### [Download CSV]({output_filename})")
             st.markdown("---")
 
-            # Display the parsed URLs in a text box
+            # Display the parsed URLs in a text box with a copy button
             st.subheader("Parsed URLs:")
             url_text = "\n".join(urls)
-            st.text_area("URLs", value=url_text, height=400)
+            st.code(url_text, language='http')
 
             # Display another download link at the bottom
             st.markdown("---")
             st.markdown(f"[Download CSV]({output_filename})")
         else:
             st.warning("No URLs found in the sitemap.")
-
