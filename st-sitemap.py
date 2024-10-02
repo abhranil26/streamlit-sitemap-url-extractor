@@ -37,7 +37,7 @@ if __name__ == "__main__":
     
     How to use:
     1. Enter the sitemap URL in the main panel
-    2. Click 'Parse and Generate CSV'
+    2. Click 'Fetch URls'
     3. View the extracted URLs and download the CSV file
     """)
 
@@ -45,25 +45,28 @@ if __name__ == "__main__":
 
     sitemap_url = st.text_input("Enter the sitemap URL:")
 
-    if st.button("Parse and Generate CSV"):
+    if st.button("Fetch URls"):
         urls = get_sitemap_urls(sitemap_url)
         if urls:
             # Generate the CSV filename based on the website address
             parsed_url = urlparse(sitemap_url)
             website_address = parsed_url.netloc
             output_filename = f"{website_address}_url_list.csv"
+            # Display a prominent download button at the top
+            csv_data = '\n'.join(urls)
+            st.download_button(
+                label="Download CSV",
+                data=csv_data,
+                file_name=output_filename,
+                mime="text/csv"
+            )
 
-            # Display download links at the top and bottom
-            st.markdown(f"### [Download CSV]({output_filename})")
-            st.markdown("---")
 
             # Display the parsed URLs in a text box with a copy button
             st.subheader("Parsed URLs:")
             url_text = "\n".join(urls)
             st.code(url_text, language='http')
 
-            # Display another download link at the bottom
-            st.markdown("---")
-            st.markdown(f"[Download CSV]({output_filename})")
+            
         else:
             st.warning("No URLs found in the sitemap.")
