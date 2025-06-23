@@ -24,6 +24,15 @@ def get_sitemap_urls(sitemap_url):
         return []
 
 if __name__ == "__main__":
+    # Add donation button to sidebar bottom
+    st.sidebar.markdown("""
+    <!-- Add the donation button here -->
+    <a href="https://ko-fi.com/abhranil26" target="_blank" rel="noopener noreferrer" class="mt-2 mx-auto"
+      id="donationButton" style="display: block;">
+      <img src="https://papa-meri-jaan.b-cdn.net/buttons/kofi_button_blue.png" alt="Support us on Ko-fi"
+        style="width: 100%;">
+    </a>
+    """, unsafe_allow_html=True)
     # Add sidebar
     st.sidebar.title("About This Tool")
     st.sidebar.write("""
@@ -40,6 +49,16 @@ if __name__ == "__main__":
     2. Click 'Fetch URls'
     3. View the extracted URLs and download the CSV file
     """)
+    
+    # Add donation button to sidebar bottom
+    st.sidebar.markdown("""
+    <!-- Add the donation button here -->
+    <a href="https://ko-fi.com/abhranil26" target="_blank" rel="noopener noreferrer" class="mt-2 mx-auto"
+      id="donationButton" style="display: block;">
+      <img src="https://papa-meri-jaan.b-cdn.net/buttons/kofi_button_blue.png" alt="Support us on Ko-fi"
+        style="width: 100%;">
+    </a>
+    """, unsafe_allow_html=True)
 
     st.title("Sitemap URL Extractor")
 
